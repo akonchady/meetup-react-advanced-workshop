@@ -8,6 +8,13 @@ class Counter extends Component {
     timestamp: Date.now()
   };
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if(nextState.count !== this.state.count) {
+      return true;
+    }
+    return false;
+  }
+
   increment = prevState => ({
     count: prevState.count + 1
   });

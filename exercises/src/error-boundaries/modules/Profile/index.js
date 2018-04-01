@@ -6,6 +6,7 @@ import UserProfile from "./profile";
 import Repositories from "./repositories";
 import Card from "../../components/library/card";
 import styled from "styled-components";
+import ErrorBoundary from '../ErrorBoundary';
 
 const RepositoriesCard = styled(Card)`
   text-align: center;
@@ -42,10 +43,10 @@ export default class Profile extends Component {
       RepositoriesData = <RepositoriesCard>No Data Found..</RepositoriesCard>;
     }
     return (
-      <Fragment>
+      <ErrorBoundary>
         <ProfileInput getUserInfo={this.getUserInfo} />
         {RepositoriesData}
-      </Fragment>
+      </ErrorBoundary>
     );
   }
 }
